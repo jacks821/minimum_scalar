@@ -1,6 +1,7 @@
 package main
 
 import (
+	"time"
 	"sort"
 	"fmt"
 	"strings"
@@ -45,6 +46,7 @@ func ScalarProduct(va []int, vb []int, i int, numints int) {
 }
 
 func main() {
+	start := time.Now()
 	argsWithoutProgram := os.Args[1]
 	lines := GrabLines(argsWithoutProgram)
 	cases, _ := strconv.Atoi(lines[0])
@@ -58,4 +60,5 @@ func main() {
 		ScalarProduct(newva, newvb, i, numints)
 		index += 3
 	}
+	fmt.Println(time.Since(start))
 }
